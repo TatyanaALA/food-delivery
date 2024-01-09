@@ -34,13 +34,11 @@ window.addEventListener('DOMContentLoaded', () => {
 
     bindTriggers = () => {
       this.btnConfirm.addEventListener('click', () => {
-        this.changeStatus(true);
-        this.popup.classList.remove(this.activeClass);
+        closePopup(this.changeStatus, true, this.activeClass, this.popup);
       });
 
       this.btnCancel.addEventListener('click', () => {
-        this.changeStatus(false);
-        this.popup.classList.remove(this.activeClass);
+        closePopup(this.changeStatus, false, this.activeClass, this.popup);
       });
     }
 
@@ -69,4 +67,10 @@ window.addEventListener('DOMContentLoaded', () => {
   function myScripts() {
     console.log('Loading...');
   }
+
+  function closePopup(changeStatus, bool, activeClass, popup) {
+    if (changeStatus(bool)) {
+      return popup.classList.remove(activeClass);
+    }
+  };
 });
