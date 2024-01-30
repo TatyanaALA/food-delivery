@@ -1,6 +1,4 @@
-function timer() {
-  	// Timer
-	const daedLine = '2024-05-11';
+function timer(id, deadline) {
 
 	function getTimeRemaining(endtime) {
 		let days, hours, minutes, seconds;
@@ -60,7 +58,7 @@ function timer() {
 		}
 	}
 
-	setClock('.timer', daedLine);
+	setClock(id, deadline);
 }
 
-module.exports = timer;
+export default timer;
